@@ -57,7 +57,7 @@ $container->set('settings', function ($container) {
             // Refer to the Doctrine documentation to see the full list
             // of valid parameters: https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html
             'connection' => [
-                'driver' => 'pdo_mysql',
+                'driver' => $_ENV['DB_DRIVER'] ?? 'pdo_mysql',
                 'host' => $_ENV['MARIADB_HOST'],
                 'port' => 3306,
                 'dbname' => $_ENV['MARIADB_DB_NAME'],
