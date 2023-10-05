@@ -4,7 +4,7 @@
 This is a simple payment API created for the Jagaad PHP Course <b>classroom-php-2304-002</b>. This application aims to cover some module 5 topics, mainly those related to the last chapter about CI/CD and deploying PHP applications.
 </p>
 
-[![Continuous Integration](https://github.com/jagaad-academy/paymentAPI/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/jagaad-academy/paymentAPI/actions/workflows/continuous-integration.yml)
+[![Continuous Integration Module5](https://github.com/h-shvedko/paymentAPI/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/h-shvedko/paymentAPI/actions/workflows/continuous-integration.yml)
 
 ## Installation
 
