@@ -14,7 +14,7 @@ $dotenv->safeLoad();
 $app = AppFactory::createFromContainer(container: $container);
 
 $app->get('/v1', function (Request $request, Response $response, $args) {
-    echo "Hello V1!";
+    echo "Hello World!";
 });
 
 //Methods
