@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for php-payment-api on 2023-10-04T21:30:57+02:00
+# fly.toml app configuration file generated for payment-api-module5 on 2023-10-05T17:28:04+02:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "php-payment-api"
+app = "payment-api-module5"
 primary_region = "ams"
 
 [build]

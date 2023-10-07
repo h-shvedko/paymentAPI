@@ -33,6 +33,18 @@ class Payments extends A_Model
     #[ORM\Column(name: 'transaction_date', type: 'date', nullable: false)]
     private string $transactionDate;
 
+    #[ORM\ManyToOne(targetEntity: Customers::class, inversedBy: "payments")]
+    #[ORM\JoinColumn(name: "customer_id", referencedColumnName: "id")]
+    private Customers $customer;
+
+    #[ORM\ManyToOne(targetEntity: Methods::class, inversedBy: "payments")]
+    #[ORM\JoinColumn(name: "method_id", referencedColumnName: "id")]
+    private Methods $method;
+
+    #[ORM\ManyToOne(targetEntity: Basket::class, inversedBy: "payments")]
+    #[ORM\JoinColumn(name: "basket_id", referencedColumnName: "id")]
+    private Basket $basket;
+
     public function getId(): int
     {
         return $this->id;
@@ -96,5 +108,35 @@ class Payments extends A_Model
     public function setTransactionDate(string $transactionDate): void
     {
         $this->transactionDate = $transactionDate;
+    }
+
+    public function getMethod(): Methods
+    {
+        return $this->method;
+    }
+
+    public function setMethod(Methods $method): void
+    {
+        $this->method = $method;
+    }
+
+    public function getCustomer(): Customers
+    {
+        return $this->customer;
+    }
+
+    public function setCustomer(Customers $customer): void
+    {
+        $this->customer = $customer;
+    }
+
+    public function getBasket(): Basket
+    {
+        return $this->basket;
+    }
+
+    public function setBasket(Basket $basket): void
+    {
+        $this->basket = $basket;
     }
 }

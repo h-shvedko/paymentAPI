@@ -15,6 +15,8 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Level;
 use Monolog\Logger;
 use PaymentApi\Controller\MethodsController;
+use PaymentApi\Repository\BasketRepository;
+use PaymentApi\Repository\BasketRepositoryDoctrine;
 use PaymentApi\Repository\CustomersRepository;
 use PaymentApi\Repository\CustomersRepositoryDoctrine;
 use PaymentApi\Repository\MethodsRepository;
@@ -58,11 +60,11 @@ $container->set('settings', function ($container) {
             // of valid parameters: https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html
             'connection' => [
                 'driver' => $_ENV['DB_DRIVER'] ?? 'pdo_mysql',
-                'host' => $_ENV['MARIADB_HOST'],
+                'host' => $_ENV['MARIADB_HOST'] ?? 'localhost',
                 'port' => 3306,
-                'dbname' => $_ENV['MARIADB_DB_NAME'],
-                'user' => $_ENV['MARIADB_DB_USER'],
-                'password' => $_ENV['MARIADB_DB_USER_PASSWORD']
+                'dbname' => $_ENV['MARIADB_DB_NAME'] ?? 'mydb',
+                'user' => $_ENV['MARIADB_DB_USER'] ?? 'user',
+                'password' => $_ENV['MARIADB_DB_USER_PASSWORD'] ?? 'pass'
             ]
         ]
 
@@ -102,6 +104,11 @@ $container->set(CustomersRepository::class, function (Container $container) {
 $container->set(PaymentsRepository::class, function (Container $container) {
     $em = $container->get(EntityManager::class);
     return new PaymentsRepositoryDoctrine($em);
+});
+
+$container->set(BasketRepository::class, function (Container $container) {
+    $em = $container->get(EntityManager::class);
+    return new BasketRepositoryDoctrine($em);
 });
 
 $container->set(Logger::class, function (Container $container){

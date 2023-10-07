@@ -48,6 +48,7 @@ $app->group('/v1/payments', function (RouteCollectorProxy $group) {
 //Basket
 $app->group('/v1/basket', function (RouteCollectorProxy $group) {
     $group->get('', '\PaymentApi\Controller\BasketController:indexAction');
+    $group->get('/{id:[0-9]+}', '\PaymentApi\Controller\BasketController:getAction');
     $group->post('', '\PaymentApi\Controller\BasketController:createAction');
     $group->delete('/{id:[0-9]+}', '\PaymentApi\Controller\BasketController:removeAction');
     $group->put('/{id:[0-9]+}', '\PaymentApi\Controller\BasketController:updateAction');
